@@ -1,0 +1,47 @@
+reservas=[]
+
+def pedido_reserva():
+
+  nome= input("Nome:\n")
+  idade= int(input("Idade:\n"))
+  cpf=int(input("Cpf:\n"))
+  num_mesa=int(input("Digite o numero da mesa que deseja:\n"))
+  data=input("Data:\n")
+  hora=input("Hora:\n")
+  q_pessoas=int(input("Quantidade de Pessaos:\n"))
+  for x in range (len(reservas)):
+    linha=[]
+    for c in range (reservas[x]):
+          linha[0]=nome
+          linha[1]=idade
+          linha[2]=cpf
+          linha[3]=data
+          linha[4]=hora
+          linha[5]=q_pessoas
+    reservas.append(linha)
+  print("mesa reservada")
+
+
+
+def pedido(reservas):
+  nume_mesa=int(input("Digite o numero da sua mesa que está:\n"))
+  print("---------CARDAPIO---------")
+  print(" FEIJOADA - 20,00$ \n SALADA - 5,00$ \n CHURRASCO - 90,00$")
+  pedido=input("Digite o que vc deseja:\n")
+  print("PEDIDO FEITO")
+  return pedido,nume_mesa
+def entrega_pedido(pedido,nume_mesa):
+  if pedido == "FEIJOADA":
+    return  print("---------FEIJOADA ENTREGUE PARA MESA ",nume_mesa,"!!!---------")
+  elif pedido =="SALADA":
+    return print ("---------SALADA ENTREGUE PARA MESA",nume_mesa,"!!!---------")
+  elif pedido =="CHURRASCO":
+    return print("---------CHURRASCO ENTREGUE PARA MESA",nume_mesa,"!!!---------")
+
+print("O QUE DESEJA?\n 1-FAZER RESERVA \n 2-FAZER PEDIDO")
+opcao=int(input(":"))
+if opcao == 1:
+  reservas=pedido_reserva()
+elif opcao ==2:
+  pedido,nume_mesa=pedido(reservas)
+  print=(entrega_pedido(pedido,nume_mesa))
